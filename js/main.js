@@ -5,7 +5,8 @@ window.addEventListener("DOMContentLoaded", () => {
     output = document.querySelector("#output"),
     sortByName = document.querySelector("#sort-by-name"),
     sortByValue = document.querySelector("#sort-by-value"),
-    deleteItem = document.querySelector("#delete-item");
+    deleteItem = document.querySelector("#delete-item"),
+    showXml = document.querySelector("#show-xml");
 
   add.addEventListener("click", () => {
     const nameValue = input1.value;
@@ -43,6 +44,12 @@ window.addEventListener("DOMContentLoaded", () => {
       output.selectionStart,
       output.selectionEnd
     );
-    output.setRangeText(`${(selected = "")}`);
+    console.log(selected);
+    output.setRangeText(`${selected = ""}`);
+  });
+
+  showXml.addEventListener("click", () => {
+    var yourString = new XMLSerializer().serializeToString(output);
+    alert(yourString);
   });
 });

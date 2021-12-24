@@ -38,4 +38,11 @@ window.addEventListener("DOMContentLoaded", () => {
     output.textContent += textareaValue + "\n";
   });
 
+  deleteItem.addEventListener("click", () => {
+    let selected = output.value.slice(
+      output.selectionStart,
+      output.selectionEnd
+    );
+    output.setRangeText(`${(selected = "")}`);
+  });
 });
